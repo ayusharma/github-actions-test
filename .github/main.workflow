@@ -1,6 +1,6 @@
 workflow "PR" {
   on = "pull_request"
-  resolves = ["docker://node:8"]
+  resolves = ["check branch name"]
 }
 
 action "Filter for PR merge" {
@@ -8,10 +8,10 @@ action "Filter for PR merge" {
   args = "merged true"
 }
 
-action "docker://node:8" {
-  uses = "docker://node:8"
+action "check branch name" {
+  uses = "actions/bin/filter@3c0b4f0e63ea54ea5df2914b4fabf383368cd0da"
   needs = ["Filter for PR merge"]
-  args = "echo 'hello world'"
+  args = "branch master"
 }
 
 workflow "New workflow" {
