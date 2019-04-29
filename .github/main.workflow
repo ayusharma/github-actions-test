@@ -13,3 +13,13 @@ action "docker://node:8" {
   needs = ["Filter for PR merge"]
   args = "echo 'hello world'"
 }
+
+workflow "New workflow" {
+  on = "push"
+  resolves = ["docker://node:10"]
+}
+
+action "docker://node:10" {
+  uses = "docker://node:10"
+  args = "echo \"this is push\""
+}
