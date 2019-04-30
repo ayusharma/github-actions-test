@@ -29,3 +29,13 @@ action "Filters for GitHub Actions" {
   needs = ["docker://node:10"]
   args = "ref refs/heads/*/merge"
 }
+
+workflow "Check Run Test" {
+  on = "check_run"
+  resolves = ["docker://node:10-1"]
+}
+
+action "docker://node:10-1" {
+  uses = "docker://node:10"
+  args = "echo \"docker saysm\""
+}
