@@ -5,3 +5,4 @@ THIS IS EXPERIMENTAL GITHUB ACTIONS TEST REPO, WILL BE DELETED IN FUTURE.
 
 2. Check event info on merge ?
 
+3. Check run ?
