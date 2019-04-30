@@ -24,12 +24,12 @@ action "docker://node:10-1" {
   args = "echo \"docker saysm\""
 }
 
-action "gr2m/git-checkout-pull-request-action@master" {
-  uses = "gr2m/git-checkout-pull-request-action@master"
+action "pr-checker" {
+  uses = "./pr-fork-checker"
 }
 
 action "docker://node:10-2" {
   uses = "docker://node:10"
-  needs = ["gr2m/git-checkout-pull-request-action@master"]
+  needs = ["pr-checker"]
   args = "echo \"PR\""
 }
